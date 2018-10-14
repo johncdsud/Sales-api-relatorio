@@ -21,13 +21,13 @@ async function gerarRelatorio(dados) {
         itens: dados.itens,
         empresa: {
             razaoSocial: dados.empresa.emp_razao,
-            nomeFantasia: dados.empresa.emp_fantasia,
+            fantasia: dados.empresa.emp_fantasia,
             cnpj: dados.empresa.emp_cnpj,
             endereco: dados.empresa.emp_endereco,
             numero: dados.empresa.emp_num,
             cep: dados.empresa.emp_cep,
             cidade: dados.empresa.emp_cidade,
-            uf: dados.empresa.emp_uf,
+            estado: dados.empresa.emp_estado,
             telefone: dados.empresa.emp_fone
         },
         valorTotal: dados.total
