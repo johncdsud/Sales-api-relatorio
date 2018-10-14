@@ -5,6 +5,9 @@ const config = require("./config/settings"),
     cors = require("cors"),
     app = express();
 
+// moment global
+moment = require("moment");
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -19,6 +22,10 @@ app.use(cors());
 
 // routes
 require('./src/api/routes/pessoa')(app);
+require('./src/api/routes/empresa')(app);
+require('./src/api/routes/produto')(app);
+require('./src/api/routes/pedidoGrade')(app);
+require('./src/api/routes/pedidoVenda')(app);
 
 app.listen(config.port, () => {
     console.log('SERVER LISTENING ON', config.port);

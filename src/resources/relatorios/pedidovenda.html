@@ -1,34 +1,26 @@
-<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <title>Pedido de Venda</title>
     <meta charset="utf-8">
 </head>
 
 <body>
-
-
     <div style="display: flex;justify-content: center">
         <table border="1">
             <tr>
-
-
                 <td colspan="6" style="text-align: right">
-
-                    <label>John Cleber Delfino </label>
+                    <label>{{ empresa.razaoSocial }}</label>
                     <br>
-                    <label>Comercial e Tecnologia JM </label>
+                    <label>{{ empresa.fantasia }}</label>
                     <br>
-                    <label>07.084.352/0001-11 </label>
+                    <label>{{ empresa.cnpj }}</label>
                     <br>
-                    <label> Dr Brálio Andrade Junqueira </label> <label>3680</label>
+                    <label>{{ empresa.endereco }}</label> <label>{{ empresa.numero }}</label>
                     <br>
-                    <label>14405-394 </label> <label>Franca</label><label>SP</label> </label>
+                    <label>{{ empresa.cep }}</label> <label>{{ empresa.cidade }}</label><label>/{{ empresa.uf }}</label> </label>
                     <br>
-                    <label>16-993817170</label>
+                    <label>{{ empresa.telefone }}</label>
                     <br>
-
                 </td>
             </tr>
             <tr>
@@ -37,42 +29,42 @@
                 </td>
             </tr>
             <tr style="background-color: #FAFAFA">
-                <td><b>CodPedido</b></td>
-                <td><b>Cliente</b></td>
-                <td><b>CPF/CNPJ</b></td>
-                <td><b>Dt Venda</b></td>
-                <td><b>Cond Pag</b></td>
-                <td><b>Vencimento</b></td>
+                <td style="border-radius: 10px"><b>CodPedido</b></td>
+                <td style="border-radius: 10px"><b>Cliente</b></td>
+                <td style="border-radius: 10px"><b>CPF/CNPJ</b></td>
+                <td style="border-radius: 10px"><b>Dt Venda</b></td>
+                <td style="border-radius: 10px"><b>Cond Pag</b></td>
+                <td style="border-radius: 10px"><b>Vencimento</b></td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>Comercial Batista</td>
-                <td>07.084.352/0001-11</td>
-                <td>11/10/2018</td>
-                <td>15</td>
-                <td style="background-color: yellow">26/10/2018</td>
+                <td style="border-radius: 10px">{{ codigo }}</td>
+                <td style="border-radius: 10px">{{ cliente }}</td>
+                <td style="border-radius: 10px">{{ cpfCnpj }}</td>
+                <td style="border-radius: 10px">{{ dataVenda }}</td>
+                <td style="border-radius: 10px">{{ condPagamento }}</td>
+                <td style="background-color: yellow ;border-radius: 10px">{{ dataVencimento}}</td>
             </tr>
             <tr>
                 <td colspan="6" style="background-color: #81BEF7">
-                    <label><b>Local de Entrega</b></label>
+                    <label ><b style="border-radius: 10px">Local de Entrega</b></label>
                 </td>
             </tr>
             <tr style="background-color: #FAFAFA">
-                <td><b>UF</b></td>
-                <td><b>Endereço</b></td>
-                <td><b>Numero</b></td>
-                <td><b>Bairro</b></td>
-                <td><b>Cep</b></td>
-                <td><b>Cidade</b></td>
+                <td style="border-radius: 10px"><b>UF</b></td>
+                <td style="border-radius: 10px"><b>Endereço</b></td>
+                <td style="border-radius: 10px"><b>Numero</b></td>
+                <td style="border-radius: 10px"><b>Bairro</b></td>
+                <td style="border-radius: 10px"><b>Cep</b></td>
+                <td style="border-radius: 10px"><b>Cidade</b></td>
 
             </tr>
             <tr>
-                <td>SP</td>
-                <td>Rua Mozair Silva Barcelos</td>
-                <td>1961</td>
-                <td>Jd Aeroporto 3</td>
-                <td>14.405-394</td>
-                <td>Franca</td>
+                <td style="border-radius: 10px">{{ uf }}</td>
+                <td style="border-radius: 10px">{{ endereco }}</td>
+                <td style="border-radius: 10px">{{ numero }}</td>
+                <td style="border-radius: 10px">{{ bairro }}</td>
+                <td style="border-radius: 10px">{{ cep }}</td>
+                <td style="border-radius: 10px">{{ cidade/uf }}/td>
 
             </tr>
             <tr>
@@ -82,201 +74,23 @@
             </tr>
             <tr style="background-color: #FAFAFA">
 
-                <td><b>Cod</b></td>
-                <td colspan="2"><b>Produto</b></td>
-                <td><b>Qtde</b></td>
-                <td><b>Unitário</b></td>
-                <td><b>Sub-Total</b></td>
+                <td style="border-radius: 10px" ><b>Cod</b></td>
+                <td colspan="2" style="border-radius: 10px"><b>Produto</b></td>
+                <td style="border-radius: 10px"><b>Qtde</b></td>
+                <td style="border-radius: 10px"><b>Unitário</b></td>
+                <td style="border-radius: 10px"><b>Sub-Total</b></td>
             </tr>
+
+            {{#each itens}}
             <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Morango 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
+                <td>{{ itemPedGlobal_cod }}</td>
+                <td colspan="2">{{ prod_nome }}</td>
+                <td>{{ qtdePedGlobal }}</td>
+                <td>{{ unitarioPedGlobal }}</td>
+                <td>{{ subTotal }}</td>
             </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Coco 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Açai 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Mamão 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td colspan="2">Iogurte Ameixa 900 GR</td>
-                <td>50</td>
-                <td>3.55</td>
-                <td>177.50</td>
-            </tr>
+            {{/each}}
+            
             <tr>
             <tr style="background-color: #81BEF7">
                 <td colspan="6" style="text-align: right"><b>TOTAL PEDIDO</b></td>
@@ -285,7 +99,7 @@
             </tr>
             <tr style="background-color: #FAFAFA">
                 <td colspan="4"></td>
-                <td colspan="2" style="text-align: right ;background-color: yellow"><b>4.792.50</b></td>
+                <td colspan="2" style="text-align: right ; border-radius: 10px;background-color: yellow"><b>R$ {{ valorTotal }}</b></td>
             </tr>
             <tr>
                 <td colspan="6" style=" text-align: center">
@@ -297,12 +111,7 @@
                     <label><b>Assinatura Comprador</b></label>
                 </td>
             </tr>
-
-
         </table>
-
-    </div>
-
     </div>
 </body>
 

@@ -1,6 +1,7 @@
-const controller = require('../../core/pedidoVenda/pedidoVendaController');
+const asyncExec = require("../../helpers/async"), 
+    controller = require('../../core/pedidoVenda/pedidoVendaController.js');
 
 module.exports = (app) => {
 
-    app.route('/ping').post(controller.gerar);
+    app.route('/api/relatorio/pedidoVenda/:codigo').get(asyncExec(controller.gerarRelatorio));
 }

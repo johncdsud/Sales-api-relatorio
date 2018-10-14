@@ -6,7 +6,7 @@ module.exports = {
     gerarRelatorio
 }
 
-async function gerarRelatorio(params, templateName) {
+async function gerarRelatorio(params, templateName, orientation) {
     return new Promise((resolve, reject) => {
         let template = fs.readFileSync(`./src/resources/relatorios/${templateName}`, 'utf-8');
 
@@ -15,7 +15,7 @@ async function gerarRelatorio(params, templateName) {
                 content: template,
                 recipe: 'phantom-pdf',
                 engine: 'handlebars',
-                phantom: { orientation: 'portrait' }
+                phantom: { orientation: orientation || 'portrait' }
             },
             data: params
         }).then((out) => {

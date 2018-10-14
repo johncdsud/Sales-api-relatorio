@@ -1,6 +1,7 @@
-const controller = require('../../core/pedidoGrade/pedidoGradeController');
+const asyncExec = require("../../helpers/async"), 
+    controller = require('../../core/pedidoGrade/pedidoGradeController.js');
 
 module.exports = (app) => {
 
-    app.route('/ping').post(controller.gerar);
+    app.route('/api/relatorio/pedidoGrade/:codigo').get(asyncExec(controller.gerarRelatorio));
 }

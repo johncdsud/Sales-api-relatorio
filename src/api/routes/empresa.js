@@ -1,6 +1,7 @@
-const controller = require('../../core/empresa/empresaController');
+const asyncExec = require("../../helpers/async"), 
+    controller = require('../../core/empresa/empresaController.js');
 
 module.exports = (app) => {
 
-    app.route('/ping').post(controller.gerar);
+    app.route('/api/relatorio/empresa/:codigo').get(asyncExec(controller.gerarRelatorio));
 }
