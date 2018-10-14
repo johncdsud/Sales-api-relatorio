@@ -33,5 +33,5 @@ async function gerarRelatorio(dados) {
         valorTotal: dados.total
     }
 
-    return jsreport.gerarRelatorio(params, 'pedidoVenda.html', 'landscape');
+    return jsreport.gerarRelatorio(params, 'pedidoVenda.html');
 }
