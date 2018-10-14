@@ -5,25 +5,35 @@ module.exports = {
     gerarRelatorio
 }
 
-async function gerarRelatorio(dados) {
-    const params = {
-        codigo: dados.pessoa_codigo,
-        nomeRazaoSocial: dados.pessoa_nome_raz,
-        isCpfOrCnpj: dados.pessoa_tipo == 'PF' ? 'CPF' : 'CNPJ',
-        apelidoNomeFantasia: dados.pessoa_ape_fan,
-        cpfCnpj: dados.pessoa_cpf_cnpj,
-        isRgOrInscricao: dados.pessoa_tipo == 'PF' ? 'RG' : 'Inscrição',
-        rgInscricao: dados.pessoa_rg_ins,
-        telefone: mask.telefone(dados.pessoa_fone),
-        celular: mask.celular(dados.pessoa_cel),
-        email: dados.pessoa_email,
-        cep: mask.cep(dados.pessoa_cep),
-        endereco: dados.pessoa_end,
-        numero: dados.pessoa_num,
-        bairro: dados.pessoa_bairro,
-        uf: dados.pessoa_uf,
-        cidade: dados.pessoa_cidade
+async function gerarRelatorio(params, title) {
+    let pessoas = [];
+
+    params.forEach(item => {
+        pessoas.push({
+            codigo: item.pessoa_codigo,
+            nomeRazaoSocial: item.pessoa_nome_raz,
+            apelidoNomeFantasia: item.pessoa_ape_fan,
+            cpfCnpj: item.pessoa_cpf_cnpj,
+            rgInscricao: item.pessoa_rg_ins,
+            telefone: mask.telefone(item.pessoa_fone),
+            celular: mask.celular(item.pessoa_cel),
+            email: item.pessoa_email,
+            cep: mask.cep(item.pessoa_cep),
+            endereco: item.pessoa_end,
+            numero: item.pessoa_num,
+            bairro: item.pessoa_bairro,
+            uf: item.pessoa_uf,
+            cidade: item.pessoa_cidade
+        });
+    });
+
+    let header = {
+        title: title,
+        isCpfOrCnpj: params[0].pessoa_tipo == 'PF' ? 'CPF' : 'CNPJ',
+        isNomeOrRazaoSocial: params[0].pessoa_tipo == 'PF' ? 'Nome' : 'Razao Social',
+        isApelidoOrFantasia: params[0].pessoa_tipo == 'PF' ? 'Apelido' : 'Nome Fantasia',
+        isRgOrInscricao: params[0].pessoa_tipo == 'PF' ? 'RG' : 'Inscrição',
     }
 
-    return jsreport.gerarRelatorio(params, 'pessoa.html');
+    return jsreport.gerarRelatorio({ pessoas, header }, 'pessoas.html', 'landscape');
 }

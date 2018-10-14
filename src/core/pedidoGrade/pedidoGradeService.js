@@ -12,7 +12,7 @@ async function gerarRelatorio(dados) {
         cliente: dados.pessoa_nome_raz,
         itens: dados.itens,
         valorTotal: dados.total,
-        quantidadeTotal: dados.quantidadeTotal,
+        quantidadeTotal: dados.quantidadeTotal
     }
 
     return jsreport.gerarRelatorio(params, 'pedidoGrade.html', 'landscape');

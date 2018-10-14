@@ -9,15 +9,15 @@
         <table border="1">
             <tr>
                 <td colspan="14" style="text-align: center">
-                    <h2>{{ apelidoNomeFantasia }}</h2>
+                    <h2>Relatório de {{ header.title }}</h2>
                 </td>
             </tr>
             <tr style="background-color: #E0F2F7">
                 <td><b>Cod</b></td>
-                <td><b>Razão Social</b></td>
-                <td><b>Nome Fantasia</b></td>
-                <td><b>{{ isCpfOrCnpj }}</b></td>
-                <td><b>{{ isRgOrInscricao }}</b></td>
+                <td><b>{{ header.isNomeOrRazaoSocial }}</b></td>
+                <td><b>{{ header.isApelidoOrFantasia }}</b></td>
+                <td><b>{{ header.isCpfOrCnpj }}</b></td>
+                <td><b>{{ header.isRgOrInscricao }}</b></td>
                 <td><b>CEP</b></td>
                 <td><b>Endereço</b></td>
                 <td><b>Numero</b></td>
@@ -29,6 +29,7 @@
                 <td><b>E-mail</b></td>
             </tr>
 
+            {{#each pessoas}}
             <tr>
                 <td>{{ codigo }}</td>
                 <td>{{ nomeRazaoSocial }}</td>
@@ -45,6 +46,7 @@
                 <td>{{ celular }}</td>
                 <td>{{ email }}</td>
             </tr>
+            {{/each}}
         </table>
     </div>
 </body>

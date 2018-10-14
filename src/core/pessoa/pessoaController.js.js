@@ -6,7 +6,25 @@ module.exports = {
 }
 
 async function gerarRelatorio(req, res) {
-    let pessoa = await repository.buscarPessoa(req.params.codigo);
-    const relatorio = await service.gerarRelatorio(pessoa);
+    let pessoas = await repository.buscarPessoas(req.params.tipoPessoa);
+    let title = trataTitle(req.params.tipoPessoa);
+    const relatorio = await service.gerarRelatorio(pessoas, title);
     res.ok({ relatorio });
+}
+
+function trataTitle(tipoPessoa) {
+    switch(tipoPessoa) {
+
+        case 'PF':
+            return 'Clientes P.F';
+
+        case 'PJ':
+            return 'Clientes P.J';
+
+        case 'FORN':
+            return 'Fornecedores';
+
+        default:
+            return '';
+    }
 }

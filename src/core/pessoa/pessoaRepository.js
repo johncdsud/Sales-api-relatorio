@@ -2,11 +2,11 @@ const db = require("../../../config/dbConnection"),
     tabela = 'PESSOA';
 
 module.exports = {
-    buscarPessoa
+    buscarPessoas
 }
 
-async function buscarPessoa(codigo) {
-    let query = `SELECT * FROM ${tabela} WHERE pessoa_codigo = ${codigo}`
-    let pessoa = await db.querySync(query);
-    return pessoa[0];
+async function buscarPessoas(tipoPessoa) {
+    let query = `SELECT * FROM ${tabela} WHERE pessoa_tipo = '${tipoPessoa}'`
+    let pessoas = await db.querySync(query);
+    return pessoas;
 }

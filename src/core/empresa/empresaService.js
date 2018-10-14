@@ -11,7 +11,7 @@ async function gerarRelatorio(dados) {
         razaoSocial: dados.emp_razao,
         fantasia: dados.emp_fantasia,
         cnpj: dados.emp_cnpj,
-        insricaoEstadual: dados.emp_rg_ins,
+        inscricaoEstadual: dados.emp_inscEst,
         telefone: mask.telefone(dados.emp_fone),
         celular: mask.celular(dados.emp_celular),
         email: dados.emp_email,
