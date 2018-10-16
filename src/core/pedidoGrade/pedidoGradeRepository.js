@@ -32,6 +32,13 @@ async function buscarPedidoGrade(codigo) {
     // organizando os itens para seus respectivos pais
     pedidoGrade.itens.forEach((item) => {
 
+        //TOTAL QUANTIDADE LISTAPEDIDO
+        // pedidoGrade.quantidadeGerall = 0;
+        // pedidoGrade.valorGeral = 0;
+
+        // pedidoGrade.quantidadeTotal += +item.item_pedcalc_qtde;
+        // pedidoGrade.quantidadeGerall += (+item.item_pedcalc_preco * +item.item_pedcalc_qtde);
+
         // pegando o total do item
         item.total = 0;
         item.total += (+item.item_pedcalc_preco * +item.item_pedcalc_qtde);

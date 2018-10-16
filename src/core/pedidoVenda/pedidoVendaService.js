@@ -13,7 +13,7 @@ async function gerarRelatorio(dados) {
         condPagamento: dados.condpag_descricao,
         dataVencimento: moment(dados.pedGlobal_dataVencimento).format('DD/MM/YYYY'),
         uf: dados.pessoa_uf,
-        endereco: dados.pessoa_bairro,
+        endereco: dados.pessoa_end,
         numero: dados.pessoa_num,
         bairro: dados.pessoa_bairro,
         cep: dados.pessoa_cep,

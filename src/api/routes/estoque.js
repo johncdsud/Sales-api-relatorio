@@ -1,6 +1,7 @@
-const controller = require('../../core/estoque/estoqueController');
+const asyncExec = require("../../helpers/async"), 
+    controller = require('../../core/estoque/estoqueController.js');
 
 module.exports = (app) => {
 
-    app.route('/ping').post(controller.gerar);
+    app.route('/api/relatorio/estoque').get(asyncExec(controller.gerarRelatorio));
 }

@@ -26,6 +26,10 @@ require('./src/api/routes/empresa')(app);
 require('./src/api/routes/produto')(app);
 require('./src/api/routes/pedidoGrade')(app);
 require('./src/api/routes/pedidoVenda')(app);
+require('./src/api/routes/condpag')(app);
+require('./src/api/routes/marca')(app);
+require('./src/api/routes/grade')(app);
+require('./src/api/routes/estoque')(app);
 
 app.listen(config.port, () => {
     console.log('SERVER LISTENING ON', config.port);

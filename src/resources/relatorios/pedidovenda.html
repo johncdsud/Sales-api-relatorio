@@ -2,11 +2,20 @@
 
 <head>
     <meta charset="utf-8">
+    <style>
+        .center {
+
+            width: 1000px;
+            height: 1000px;
+            
+
+        }
+    </style>
 </head>
 
 <body>
-    <div style="display: flex;justify-content: center">
-        <table border="1">
+    <div class="center">
+        <table border="1" class="center">
             <tr>
                 <td colspan="6" style="text-align: right">
                     <label>{{ empresa.razaoSocial }}</label>
@@ -17,7 +26,8 @@
                     <br>
                     <label>{{ empresa.endereco }}</label> <label>{{ empresa.numero }}</label>
                     <br>
-                    <label>{{ empresa.cep }}</label> <label>{{ empresa.cidade }}</label><label>/{{ empresa.estado }}</label> </label>
+                    <label>{{ empresa.cep }}</label> <label>{{ empresa.cidade }}</label><label>/{{ empresa.estado }}</label>
+                    </label>
                     <br>
                     <label>{{ empresa.telefone }}</label>
                     <br>
@@ -46,7 +56,7 @@
             </tr>
             <tr>
                 <td colspan="6" style="background-color: #81BEF7">
-                    <label ><b style="border-radius: 10px">Local de Entrega</b></label>
+                    <label><b style="border-radius: 10px">Local de Entrega</b></label>
                 </td>
             </tr>
             <tr style="background-color: #FAFAFA">
@@ -74,7 +84,7 @@
             </tr>
             <tr style="background-color: #FAFAFA">
 
-                <td style="border-radius: 10px" ><b>Cod</b></td>
+                <td style="border-radius: 10px"><b>Cod</b></td>
                 <td colspan="2" style="border-radius: 10px"><b>Produto</b></td>
                 <td style="border-radius: 10px"><b>Qtde</b></td>
                 <td style="border-radius: 10px"><b>Unitário</b></td>
@@ -90,7 +100,7 @@
                 <td>{{ subTotal }}</td>
             </tr>
             {{/each}}
-            
+
             <tr>
             <tr style="background-color: #81BEF7">
                 <td colspan="6" style="text-align: right"><b>TOTAL PEDIDO</b></td>
@@ -99,7 +109,8 @@
             </tr>
             <tr style="background-color: #FAFAFA">
                 <td colspan="4"></td>
-                <td colspan="2" style="text-align: right ; border-radius: 10px;background-color: yellow"><b>R$ {{ valorTotal }}</b></td>
+                <td colspan="2" style="text-align: right ; border-radius: 10px;background-color: yellow"><b>R$ {{
+                        valorTotal }}</b></td>
             </tr>
             <tr>
                 <td colspan="6" style=" text-align: center">

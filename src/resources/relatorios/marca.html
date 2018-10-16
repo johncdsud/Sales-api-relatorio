@@ -1,0 +1,40 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+
+    <style>
+        .center {
+            margin: 0 auto;
+            width: 200px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+            <table border="1">
+                <tr>
+                    <td colspan="6" style="text-align: center">
+                        <h2>Marcas</h2>
+                    </td>
+                </tr>
+                <tr style="background-color: #E0F2F7">
+                    <td><b>Cod</b></td>
+                    <td><b>Nome</b></td>
+                    <td><b>Linha de Produtos</b></td>
+                </tr>
+
+                {{#each marca}}
+                <tr>
+                    <td>{{ codigo }}</td>
+                    <td>{{ nome }}</td>
+                    <td>{{ linha }}</td>
+                </tr>
+                {{/each}}
+            </table>
+    </div>
+</body>
+
+</html>
