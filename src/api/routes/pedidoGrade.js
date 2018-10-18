@@ -4,4 +4,5 @@ const asyncExec = require("../../helpers/async"),
 module.exports = (app) => {
 
     app.route('/api/relatorio/pedidoGrade/:codigo').get(asyncExec(controller.gerarRelatorio));
+    app.route('/api/relatorio/pedidoGrade').post(asyncExec(controller.gerarRelatorioTodosPedidos));
 }

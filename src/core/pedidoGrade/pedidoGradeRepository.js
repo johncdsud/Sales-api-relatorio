@@ -4,7 +4,9 @@ const db = require("../../../config/dbConnection"),
     tabela3 = 'ITEM_PED_GRAD'
 
 module.exports = {
-    buscarPedidoGrade
+    buscarPedidoGrade,
+    buscarTodosPedidos,
+    buscarTodosItemsPedidos
 }
 
 async function buscarPedidoGrade(codigo) {
@@ -56,4 +58,14 @@ async function buscarPedidoGrade(codigo) {
     });
 
     return pedidoGrade;
+}
+
+async function buscarTodosPedidos(data) {
+    let query = `SELECT * FROM ${tabela} pc INNER JOIN PESSOA pes ON pes.pessoa_codigo = pc.pessoa_codigo WHERE pc.dataped between '${data.inicio}' AND '${data.fim}'`;
+    return db.querySync(query);
+}
+
+async function buscarTodosItemsPedidos() {
+    let query = `SELECT * FROM ${tabela2}`;
+    return db.querySync(query);
 }

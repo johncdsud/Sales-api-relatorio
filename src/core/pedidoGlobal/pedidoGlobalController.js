@@ -1,5 +1,5 @@
-const repository = require("./pedidoGradeRepository"),
-    service = require("./pedidoGradeService");
+const repository = require("./pedidoGlobalRepository"),
+    service = require("./pedidoGlobalService");
 
 module.exports = {
     gerarRelatorio,
@@ -7,8 +7,8 @@ module.exports = {
 }
 
 async function gerarRelatorio(req, res) {
-    let pedidoGrade = await repository.buscarPedidoGrade(req.params.codigo);
-    const relatorio = await service.gerarRelatorio(pedidoGrade);
+    let pedidoGlobal = await repository.buscarPedidoGlobal(req.params.codigo);
+    const relatorio = await service.gerarRelatorio(pedidoGlobal);
     res.ok({ relatorio });
 }
 

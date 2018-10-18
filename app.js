@@ -25,7 +25,7 @@ require('./src/api/routes/pessoa')(app);
 require('./src/api/routes/empresa')(app);
 require('./src/api/routes/produto')(app);
 require('./src/api/routes/pedidoGrade')(app);
-require('./src/api/routes/pedidoVenda')(app);
+require('./src/api/routes/pedidoGlobal')(app);
 require('./src/api/routes/condpag')(app);
 require('./src/api/routes/marca')(app);
 require('./src/api/routes/grade')(app);

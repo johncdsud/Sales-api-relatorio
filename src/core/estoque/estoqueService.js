@@ -36,7 +36,7 @@ async function gerarRelatorio(produtos, estoque) {
 
             if (saida.prod_codigo == est.codigo) {
                 est.disponivel -= saida.qtde;
-                est.subTotal -= (+ent.item_custo * +ent.qtde);
+                est.subTotal -= (+saida.item_custo * +saida.qtde);
             }
 
         });

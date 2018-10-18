@@ -1,0 +1,53 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+
+    <style>
+        .center {
+            margin: 0 auto;
+            width: 1100px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <table class="center" border="1" style="border-radius: 5px, ">
+            <tr>
+                <td colspan="6" style="text-align: center; background-color: rgb(233, 233, 233)">
+                    <h2>RELATÓRIO PEDIDO DE VENDA</h2>
+                </td>
+            </tr>
+            <tr style="background-color: #E0F2F7; text-align:center">
+                <td><b>PEDIDO</b></td>
+                <td style="width: 200px"><b>CLIENTE</b></td>
+                <td style="width: 100px"><b>DATA</b></td>
+                <td><b>QTDADE</b></td>
+                <td><b>R$ TOTAL</b></td>
+            </tr>
+
+            {{#each pedidoGlobal}}
+            <tr id="center" style="text-align: center">
+                <td>{{codigo}}</td>
+                <td style="width: 200px ">{{cliente}}</td>
+                <td style="width: 100px">{{dataPedido}}</td>
+                <td>{{quantidadeTotal}}</td>
+                <td><b>{{valorTotal}}</b></td>
+            </tr>
+            {{/each}}
+
+            <tr style="background-color: #E0F2F7; text-align: center">
+                <td colspan="3"><b>TOTAL GERAL</b></td>
+                <td style="color: blue"><b>{{quantidadeTotal}}</b></td>
+                <td style="color: blue"><b>{{valorTotal}}</b></td>
+            </tr>
+        </table>
+
+    </div>
+
+    </div>
+</body>
+
+</html>
